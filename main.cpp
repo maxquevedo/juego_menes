@@ -1,7 +1,7 @@
 #include <allegro.h>
 #include <iostream>
 #include "clases.h"
-
+#include "pelea.h"
 #define ancho 800
 #define alto 600
 using namespace std;
@@ -60,25 +60,6 @@ int main(){
         if(key[KEY_1]){
             gameover = true;
         }
-        /**
-
-        if(key[KEY_SPACE]){
-             play_sample(soundtrack,255,0,990,1);
-        }
-        if(key[KEY_W] && y > -20){
-            y--;
-        }
-        if(key[KEY_S] && y < alto-274){
-            y++;
-        }
-        if(key[KEY_A] && x >= 0){
-            x--;
-        }
-        if(key[KEY_D] && x < ancho){
-            x++;
-        }
-        draw_sprite(screen,dado,650,150);
-        **/
 
         rest(20);
         /**Creditos **/
@@ -86,6 +67,7 @@ int main(){
             play_midi(africa,0);
             clear_bitmap(buffer);
             blit(buffer,screen,0,0,0,0,ancho,alto);
+            break;
         }
     }
 destroy_bitmap(fondo);

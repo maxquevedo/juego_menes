@@ -1,6 +1,8 @@
+#include <string.h>
+using namespace std;
+
 class personaje {
 public:
-    string nombre;
     int pdv; /** Puntos de vida **/
     int pdm; /** Puntos de mana**/
     int magia; /** Poder de magia **/
@@ -9,8 +11,10 @@ public:
     int res_fis; /** Resistencia a fisica **/
     int res_mag; /** Resistencia magica **/
     int velocidad; /** Quien parte **/
+     string nombre;
 
   personaje(){
+      nombre = "kleta";
       pdv = 10;
       pdm = 10;
       magia = 1;
@@ -22,6 +26,7 @@ public:
   }
 };
 
+/**
 class maxo : public personaje{
 
 };
@@ -46,4 +51,4 @@ class tula : public personaje(){
 
 class gustav: public personaje(){
 };
-
+**/
