@@ -21,6 +21,7 @@ int main(){
     BITMAP *fondo = load_bitmap("img/fondo_01.bmp",NULL);
     BITMAP *dado = load_bitmap("img/dado.bmp",NULL);
 	MIDI *africa = load_midi("sound/Africa.mid");
+	SAMPLE *battle = load_wav("sound/battle.wav");
 	SAMPLE *soundtrack = load_wav("sound/soundtrack.wav");
 
     int pausa = 0;
@@ -35,6 +36,8 @@ int main(){
         clear_to_color(buffer, 0x333333);
         rectfill(buffer, 30, 30, ancho-30, alto-30, makecol(0,0,0));
         textout_centre_ex(buffer, font, "ESC para Salir", ancho/2, 10, 0xFFFFFF,000000);
+          //prueba de pelea
+          pelea();
         while(!iniciar){
             textout_centre(buffer, font, "-Nombre del juego-", ancho/2,200,0xFFFFFF);
             textout_centre(buffer, font, "Presiona espacio para activar/desactivar el sonido", ancho/2,alto/2+20,0xFFFFFF);
@@ -58,7 +61,8 @@ int main(){
         blit(fondo,screen,0,0,0,0,ancho,alto);
 
         if(key[KEY_1]){
-            gameover = true;
+            stop_sample(soundtrack);
+            pelea();
         }
 
         rest(20);
