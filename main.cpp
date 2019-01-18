@@ -30,6 +30,7 @@ int main(){
     bool iniciar = false;
     bool elegido = false;
     bool gameover = false;
+    bool musica = false;
 
     /** Pantalla de inicio **/
     while ( !key[KEY_ESC] ){
@@ -37,7 +38,7 @@ int main(){
         rectfill(buffer, 30, 30, ancho-30, alto-30, makecol(0,0,0));
         textout_centre_ex(buffer, font, "ESC para Salir", ancho/2, 10, 0xFFFFFF,000000);
           //prueba de pelea
-          pelea();
+          //pelea();
         while(!iniciar){
             textout_centre(buffer, font, "-Nombre del juego-", ancho/2,200,0xFFFFFF);
             textout_centre(buffer, font, "Presiona espacio para activar/desactivar el sonido", ancho/2,alto/2+20,0xFFFFFF);
@@ -45,7 +46,13 @@ int main(){
             textout_centre(buffer, font, "Creado por Maxo", ancho-100,alto-10,0xFFFFFF);
             blit(buffer, screen, 0, 0, 0, 0, ancho, alto);
             if(key[KEY_SPACE]){
-                play_sample(soundtrack,255,0,1000,1);
+                musica = (!musica);
+                if(!musica){
+                    play_sample(soundtrack,255,0,1000,1);
+
+                }else{
+                    stop_sample(soundtrack);
+                }
             }
             if(key[KEY_P]){
                iniciar= true;
