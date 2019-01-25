@@ -1,7 +1,10 @@
 #include <allegro.h>
 #include <iostream>
+#include <stdio.h>
+#include <cstring>
 #include "clases.h"
 #include "pelea.h"
+#include "historia.h"
 #define ancho 800
 #define alto 600
 using namespace std;
@@ -55,7 +58,8 @@ int main(){
                 }
             }
             if(key[KEY_P]){
-               iniciar= true;
+                    prologo(buffer,"Max");
+               //iniciar= true;
            }
            if(key[KEY_ESC]){
                 return 0;
@@ -64,6 +68,7 @@ int main(){
         clear_bitmap(buffer);
 
         /** Pantalla del juego **/
+        //prologo(buffer);
         textout_centre_ex(fondo, font, "ESC para Salir", ancho/2, 10, 0xFFFFFF,000000);
         blit(fondo,screen,0,0,0,0,ancho,alto);
 
