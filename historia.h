@@ -1,11 +1,13 @@
 #include <allegro.h>
 #include <stdio.h>
 #include <cstring>
+#include <iostream>
 #define ancho 800
 #define alto 600
 using namespace std;
 
 void prologo(BITMAP* principal, char* prota){
+    string x;
     clear_bitmap(principal);
     BITMAP* fondo = create_bitmap(ancho,alto);
     bool aux = false;
@@ -24,13 +26,30 @@ void prologo(BITMAP* principal, char* prota){
             blit(fondo,screen,0,0,0,0,ancho,alto);
             if(key[KEY_J]){
                 clear_bitmap(fondo);
+                    break;
+                }
+            }
+            key[KEY_J]=false;
+        while(!key[KEY_ESC]){
+            textout_centre(fondo,font,"tomas tu tiempo para comprobar tu equipo",400,200,makecol(255,255,255));
+             textout_centre(fondo,font,"todo parece estar en orden",400,220,makecol(255,255,255));
+              textout_centre(fondo,font,"decides caminar hacia el origen del ruido",400,240,makecol(255,255,255));
+            blit(fondo,screen,0,0,0,0,ancho,alto);
+            if(key[KEY_J]){
+                clear_bitmap(fondo);
                 break;
             }
         }
+        key[KEY_J]=false;
         while(!key[KEY_ESC]){
-            textout_centre(fondo,font,"En una epoca reinada por el caos y el terror,",400,200,makecol(255,255,255));
-            blit(fondo,screen,0,0,0,0,ancho,alto);
-        }
+            textout_centre(fondo,font,"Ves algo extraño a lo lejos",400,200,makecol(255,255,255));
+            textout_centre(fondo,font,"te acercas para inspeccionar",400,240,makecol(255,255,255));
+            if(key[KEY_J]){
+                clear_bitmap(fondo);
+                break;
+                }
+            }
+        key[KEY_J]=false;
 }
 
 void inicio(){
