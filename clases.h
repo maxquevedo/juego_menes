@@ -26,29 +26,53 @@ public:
   }
 };
 
-/**
+
 class maxo : public personaje{
+public:
+    maxo(){
 
+    }
 };
 
-class nico : public personaje(){
+class nico : public personaje{
+public:
+    nico(){
+    }
 };
 
-class franco : public personaje(){
+class franco : public personaje{
+public:
+    franco(){
+    }
 };
 
-class ramon : public personaje(){
+class ramon : public personaje{
+public:
+    ramon(){
+    }
 };
 
-class salva : public personaje(){
+class salva : public personaje{
+public:
+    salva(){
+    }
 };
 
-class axel : public personaje(){
+class axel : public personaje{
+public:
+    axel(){
+    }
 };
 
-class tula : public personaje(){
+class tula : public personaje{
+public:
+    tula(){
+    }
 };
 
-class gustav: public personaje(){
+class gustav: public personaje{
+public:
+    gustav(){
+    }
 };
-**/
+

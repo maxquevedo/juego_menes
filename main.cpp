@@ -58,8 +58,8 @@ int main(){
                 }
             }
             if(key[KEY_P]){
-                    prologo(buffer,"Max");
-               //iniciar= true;
+                prologo(buffer,"Max");
+                iniciar= true;
            }
            if(key[KEY_ESC]){
                 return 0;
