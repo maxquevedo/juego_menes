@@ -18,7 +18,7 @@ void prologo(BITMAP* principal, char* prota){
             rectfill(fondo, 30, 30, ancho-30, alto-30, makecol(0,0,0));
             textout_centre(fondo,font,"En una epoca reinada por el caos y el terror,",400,200,makecol(255,255,255));
             textout_centre(fondo,font,"nuestra historia ocurre en la mitica ciudad de Kalapa",400,220,makecol(255,255,255));
-            textout(fondo,font,prota,180,240,makecol(255,255,255));
+            textout(fondo,font,prota,150,240,makecol(255,255,255));
             textout(fondo,font,"se encontraba durmiendo bajo la sombra de una palmera",210,240,makecol(255,255,255));
             textout_centre(fondo,font,"un fuerte ruido retumba en sus oidos... abre los ojos",400,260,makecol(255,255,255));
             textout_centre(fondo,font,"ABRE LOS OJOS",400,300,makecol(255,255,255));
@@ -44,6 +44,7 @@ void prologo(BITMAP* principal, char* prota){
         while(!key[KEY_ESC]){
             textout_centre(fondo,font,"Ves algo extraño a lo lejos",400,200,makecol(255,255,255));
             textout_centre(fondo,font,"te acercas para inspeccionar",400,240,makecol(255,255,255));
+            blit(fondo,screen,0,0,0,0,ancho,alto);
             if(key[KEY_J]){
                 clear_bitmap(fondo);
                 break;

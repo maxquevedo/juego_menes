@@ -9,9 +9,26 @@
 #define alto 600
 using namespace std;
 
+char* eligePersonaje(BITMAP*fondo){
+    int pos = 0;
+    char* personajes[7]{"Axel","Franco","Gustav","Maxo","Nico","Ramon","Ventura"};
+    clear_bitmap(fondo);
+    BITMAP* elije = create_bitmap(ancho,alto);
+    while(!key[KEY_ESC]){
+        textout_centre(fondo,font,"Max",385,80,makecol(255,255,255));
+        textout(fondo,font,"<=",335,80,makecol(255,255,255));
+        textout(fondo,font,"=>",435,80,makecol(255,255,255));
+        circlefill(fondo,(ancho/2),(alto/2)+30,200,makecol(255,255,255));
+        blit(fondo,screen,0,0,0,0,ancho,alto);
+        if(key[KEY_ENTER]){
+            break;
+        }
+    }
+    return personajes[pos];
+}
+
 int main(){
      allegro_init();
-
     install_keyboard();
     install_sound(DIGI_AUTODETECT, MIDI_AUTODETECT, NULL);
 
@@ -40,8 +57,6 @@ int main(){
         clear_to_color(buffer, 0x333333);
         rectfill(buffer, 30, 30, ancho-30, alto-30, makecol(0,0,0));
         textout_centre_ex(buffer, font, "ESC para Salir", ancho/2, 10, 0xFFFFFF,000000);
-          //prueba de pelea
-          //pelea();
         while(!iniciar){
             textout_centre(buffer, font, "-Nombre del juego-", ancho/2,200,0xFFFFFF);
             textout_centre(buffer, font, "Presiona espacio para activar/desactivar el sonido", ancho/2,alto/2+20,0xFFFFFF);
@@ -57,8 +72,11 @@ int main(){
                     stop_sample(soundtrack);
                 }
             }
+            /** PROLOGO **/
             if(key[KEY_P]){
-                prologo(buffer,"Max");
+                char* prota = eligePersonaje(buffer);
+                clear_bitmap(buffer);
+                prologo(buffer,prota);
                 iniciar= true;
            }
            if(key[KEY_ESC]){
@@ -68,7 +86,6 @@ int main(){
         clear_bitmap(buffer);
 
         /** Pantalla del juego **/
-        //prologo(buffer);
         textout_centre_ex(fondo, font, "ESC para Salir", ancho/2, 10, 0xFFFFFF,000000);
         blit(fondo,screen,0,0,0,0,ancho,alto);
 
